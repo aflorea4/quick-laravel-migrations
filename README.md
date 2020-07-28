@@ -7,7 +7,21 @@ In work...
 
 # Documentation & Installation
 
-In work...
+#### 2 Utility classes are provided:
+##### 1. QuickDatabaseMigrations
+- defines hooks to migrate the database
+- you use the laravel-implemented database migrations:
+    - ->baseRunDatabaseMigrations();
+    - ->baseRunDatabaseSeedMigrations();
+- or faster migrations via:
+    - ->runDatabaseMigrations();
+    - ->runDatabaseSeedMigrations();
+- it requires the usage of MySqlDump (or manual placement of dump files)
+##### 2. MySqlDump
+- a fast way to generate dump files
+
+-- installation instruction will eventually end up here :)
+
 
 # Supported versions
 
