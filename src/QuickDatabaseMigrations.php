@@ -3,8 +3,7 @@
 namespace QuickDatabaseMigrations;
 
 use Illuminate\Contracts\Console\Kernel;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Migrations\Migration;
+use Illuminate\Foundation\Testing\RefreshDatabaseState;
 
 trait QuickDatabaseMigrations
 {
@@ -26,8 +25,8 @@ trait QuickDatabaseMigrations
             RefreshDatabaseState::$migrated = false;
         });
     }
-	
-	/**
+
+    /**
      * Define hooks to migrate the database before and after each test. (with seeding)
      * Default way to perform migrations
      *
@@ -54,8 +53,12 @@ trait QuickDatabaseMigrations
     public function runDatabaseMigrations()
     {
         // Make sure to php artisan db:dump first
-		$this->artisan('migrate:fresh --path='. __DIR__ . DIRECTORY_SEPARATOR .'QuickMigration --realpath');
-		
+        //$this->artisan('migrate:fresh --path=' . __DIR__ . DIRECTORY_SEPARATOR . 'QuickMigration --realpath');
+        $this->artisan('migrate:fresh', [
+            '--path' => realpath(__DIR__ . DIRECTORY_SEPARATOR . 'QuickMigration'),
+            '--realpath' => 1,
+        ]);
+
         $this->app[Kernel::class]->setArtisan(null);
 
         $this->beforeApplicationDestroyed(function () {
@@ -72,8 +75,12 @@ trait QuickDatabaseMigrations
     public function runDatabaseSeedMigrations()
     {
         // Make sure to php artisan db:dump first
-		$this->artisan('migrate:fresh --path='. __DIR__ . DIRECTORY_SEPARATOR .'QuickSeedMigration --realpath');
-		
+        // $this->artisan('migrate:fresh --path=' . __DIR__ . DIRECTORY_SEPARATOR . 'QuickSeedMigration --realpath');
+        $this->artisan('migrate:fresh', [
+            '--path' => realpath(__DIR__ . DIRECTORY_SEPARATOR . 'QuickSeedMigration'),
+            '--realpath' => 1,
+        ]);
+
         $this->app[Kernel::class]->setArtisan(null);
 
         $this->beforeApplicationDestroyed(function () {
