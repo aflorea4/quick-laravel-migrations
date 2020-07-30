@@ -33,8 +33,8 @@ class MySqlDump extends Command
         $migrateFilePath        = __DIR__ . DIRECTORY_SEPARATOR . "QuickMigration" . DIRECTORY_SEPARATOR . "sql.dump";
         $migrateSeedFilePath    = __DIR__ . DIRECTORY_SEPARATOR . "QuickSeedMigration" . DIRECTORY_SEPARATOR . "sql.dump";
 
-        $migrateCommand        = sprintf('mysqldump --no-data -h %s -u %s -p %s > %s', env('DB_HOST'), env('DB_USERNAME'), env('DB_DATABASE'), $migrateFilePath);
-        $migrateSeedCommand    = sprintf('mysqldump -h %s -u %s -p %s > %s', env('DB_HOST'), env('DB_USERNAME'), env('DB_DATABASE'), $migrateSeedFilePath);
+        $migrateCommand         = sprintf('mysqldump --no-data -h %s -u %s -p %s > %s', env('DB_HOST'), env('DB_USERNAME'), env('DB_DATABASE'), $migrateFilePath);
+        $migrateSeedCommand     = sprintf('mysqldump -h %s -u %s -p %s > %s', env('DB_HOST'), env('DB_USERNAME'), env('DB_DATABASE'), $migrateSeedFilePath);
 
         exec($migrateCommand);
         exec($migrateSeedCommand);

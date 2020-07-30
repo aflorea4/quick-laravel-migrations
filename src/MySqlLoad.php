@@ -45,5 +45,7 @@ class MySqlLoad extends Command
         $this->info($migrateCommand);
 
         exec($migrateCommand);
+
+        $this->info(microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'] . ' seconds');
     }
 }
