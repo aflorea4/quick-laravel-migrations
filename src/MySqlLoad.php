@@ -44,6 +44,6 @@ class MySqlLoad extends Command
         $migrateCommand = sprintf($migrateCommand, $migratePath);
         $this->info($migrateCommand);
 
-        exec($migrateSeedCommand);
+        exec($migrateCommand);
     }
 }
