@@ -24,6 +24,7 @@ class MySqlLoad extends Command
     /**
      * Load dump files for
      *  artisan migrate:fresh --seed
+     *  artisan migrate:fresh
      *
      * @return mixed
      */
@@ -42,7 +43,7 @@ class MySqlLoad extends Command
 
         $migrateCommand = sprintf($migrateCommand, $migrateSeedPath);
         $this->info($migrateCommand);
-        
+
         exec($migrateSeedCommand);
     }
 }
