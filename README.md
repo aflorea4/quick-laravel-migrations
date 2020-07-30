@@ -2,7 +2,7 @@
 
 A [composer package](https://packagist.org/packages/alexandruflorea/quick-laravel-migrations) made for importing database dumps faster than the laravel classic migration system.
 
-It can be used to replace the slow <br/>
+It can be used to replace the rather slow <br/>
 * `$this->runDatabaseMigrations()`<br/>
 * `$this->seed()`<br/>
 * `artisan migrate:fresh`<br/>
