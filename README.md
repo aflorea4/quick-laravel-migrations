@@ -3,7 +3,8 @@ A package made for importing database dumps faster than the laravel classic migr
 
 # What you can do after installation
 
-In work...
+    php artisan db:dump
+    php artisan db:load
 
 # Documentation & Installation
 
@@ -25,11 +26,11 @@ In work...
 
 # Supported versions
 
-In work...
+Laravel 5+
 
 # Credits
 
-In work...
+👑 @GaussianWonder - Main Developer
 
 # License
 
