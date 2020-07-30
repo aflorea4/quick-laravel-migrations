@@ -26,7 +26,7 @@ A package made for importing database dumps faster than the laravel classic migr
 
 # Supported versions
 
-Laravel 5+
+Laravel 5.6+
 
 # Credits
 
