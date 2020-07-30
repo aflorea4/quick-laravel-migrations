@@ -12,7 +12,7 @@ It can be used to replace the rather slow <br/>
 
 ```bash
 php artisan db:dump
-php artisan db:load
+php artisan db:load {--seed}
 ```
 
 <hr/>

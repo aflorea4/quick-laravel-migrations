@@ -12,7 +12,7 @@ class MySqlLoad extends Command
      *
      * @var string
      */
-    protected $signature = 'db:load';
+    protected $signature = 'db:load {--seed}';
 
     /**
      * The console command description.
@@ -29,8 +29,19 @@ class MySqlLoad extends Command
      */
     public function handle()
     {
-        $migrateSeedPath        = __DIR__ . DIRECTORY_SEPARATOR . "QuickSeedMigration";
-        $migrateSeedCommand     = sprintf('php artisan migrate:fresh --path='. $migrateSeedPath .' --realpath');
+        $seeding = $this->option('seed');
+        $migratePath = __DIR__ . DIRECTORY_SEPARATOR;
+        $migrateCommand = 'php artisan migrate:fresh --path=%s --realpath';
+
+        if($seeding == true) {
+            $migratePath .= "QuickSeedMigration";
+        }
+        else {
+            $migratePath .= "QuickMigration";
+        }
+
+        $migrateCommand = sprintf($migrateCommand, $migrateSeedPath);
+        $this->info($migrateCommand);
         
         exec($migrateSeedCommand);
     }
