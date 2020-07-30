@@ -1,5 +1,5 @@
 {
-    "name": "gaussian-wonder/quick-laravel-migrations",
+    "name": "alexandruflorea/quick-laravel-migrations",
     "description": "A package made for importing database dumps faster than the laravel classic migration system.",
     "type": "library",
     "license": "MIT",
